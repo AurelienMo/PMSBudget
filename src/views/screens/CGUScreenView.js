@@ -1,13 +1,16 @@
 import React from 'react'
 import {ScrollView, Text, Button, StyleSheet} from 'react-native';
-import Communications from 'react-native-communications'
+import {connect} from "react-redux";
 
 class CGUScreenView extends React.Component {
     render() {
+        if (this.props.cguAccepted) {
+            this.props.navigation.navigate('Home');
+        }
         return (
             <ScrollView style={styles.main_container}>
                 <Text style={styles.text_content}>
-
+ghjgjhgghhjgghjghjghjgjhjghjgh
                 </Text>
                 <Button title="J'accepte" onPress={this._navigate}/>
             </ScrollView>
@@ -15,7 +18,8 @@ class CGUScreenView extends React.Component {
     }
 
     _navigate = () => {
-        return this.props.navigation.navigate('Home');
+        const action = { type: 'ACCEPT_CGU', value: true }
+        this.props.navigation.navigate('Home');
     }
 }
 
@@ -27,4 +31,8 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CGUScreenView;
+const mapStateToProps = (state) => {
+    return state;
+};
+
+export default connect(mapStateToProps)(CGUScreenView);

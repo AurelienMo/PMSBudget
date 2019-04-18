@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import Logo from "./src/views/components/Logo";
 import RootNavigator from "./src/navigator/MainNavigator";
+import {Provider} from "react-redux";
+import Store from './src/Store/configureStore';
 
 export default class App extends Component<Props> {
   render() {
     return (
-      <RootNavigator/>
+        <Provider store={Store}>
+          <RootNavigator/>
+        </Provider>
     );
   }
 }
-
