@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
 import RootNavigator from "./src/navigator/MainNavigator";
-import {Provider} from "react-redux";
-import Store from './src/Store/configureStore';
+import {connect} from "react-redux";
 
-export default class App extends Component<Props> {
+class App extends Component<Props> {
   render() {
     return (
-        <Provider store={Store}>
-          <RootNavigator/>
-        </Provider>
+      <RootNavigator/>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        state: state
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

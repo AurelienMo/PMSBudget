@@ -3,6 +3,7 @@ import React from 'react';
 import CGUScreenView from "../views/screens/CGUScreenView";
 import HomeScreenView from "../views/screens/HomeScreenView";
 import Header from "../views/components/Header";
+import AuthenticateScreenView from "../views/screens/AuthenticateScreenView";
 
 const CGUNavigator = createStackNavigator({
     CGU: {
@@ -23,6 +24,9 @@ const HomeNavigator = createStackNavigator({
                 <Header title="Accueil"/>
             )
         }
+    },
+    Authenticate: {
+        screen: AuthenticateScreenView
     }
 });
 
